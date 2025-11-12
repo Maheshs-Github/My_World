@@ -11,7 +11,22 @@ configDotenv();
 
 const Port = process.env.PORT || 5100;
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+
+const allowedOrigins = [
+  "https://my-world-x66a.onrender.com", // your frontend on Render
+  "http://localhost:5173" // for local testing
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 
 Connection();
 
