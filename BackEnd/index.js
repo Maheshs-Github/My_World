@@ -24,7 +24,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "./FrontEnd/dist")));
 
 // ✅ Catch-all for React Router
-app.get("*", (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "./FrontEnd/dist/index.html"));
 });
 
