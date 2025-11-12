@@ -1,0 +1,60 @@
+1. Why do map have to return else it will not show anything 
+Well we can use implicit return there too, why do we use the implictand explicit return and how?
+2. 
+const Port=process.env.PORT || 5100;  where does the that PORT comes from that env file, well it wasn't imported it there 
+3. Check for the Backend learning text file , least that GPT Chat, well there is definetly the learning file 
+4. Check about the Education Schema and UI in place of courses
+5.if (e.key === "Enter") {
+  setSkill((prev) => {
+    const newSkills = [...prev, e.target.value];
+    console.log("Next Skills:", newSkills);
+    return newSkills;
+  });
+}
+Here you’re logging inside the updater function — so it captures the next array right before returning it.
+(What is updater function)
+6. i have heard that it gives error if we have anything in a first callback
+  useEffect(()=>{
+      console.log("Skills: ",skill)
+  },[skill])
+
+  7. ---- let's discuss about something we wanted to create the Componenet Which will have Title and one Horizontal Line 
+
+- My logic was like something like this 
+    // <div className="flex justify-start">
+    //   <h2 className="text-white text-4xl mr-[40px]">{title}</h2>
+    //   <div className="flex  items-center">
+    //     <div className="bg-tertiory h-[2px] w-[300px] inline-block"></div>
+    //   </div>
+    // </div>
+
+  So i thought we set the outter to the start with flex , now our Title is in Place, but to place the line , what we will do is that, i created the wrapper for line , set it to the flex and items-center to set it into the middle, 
+  Also inline-block was for span to set the height and width 
+
+  - Approch from GPT
+      <div className="flex items-center w-full">
+      <h2 className="text-white text-4xl mr-[40px] whitespace-nowrap">
+        {title}
+      </h2>
+      <div className="bg-tertiory h-[2px] flex-grow w-[300px]"></div>
+    </div>
+  Here simply what GPT did is that,just set the outter div to flex and set the items-center that and there, that's all, Also Actually we don't need the w-full, but it result in the long horizontal line, flex-grow help in that , as we have w-full, flex-grow will give the remaning space to that line, Also whitespace-nowrap is making sure that h2 don't go to next line 
+
+8. Wrirte about fixed and sticky we use with headr and socioalShare Compenenet
+9. i don't rweally understand in my projcet when i make some chnages it does not load the whole page , like does not refresh , just add what i ahve newly added  , but in our company page it happens , raload on each chnage why is that 
+
+
+10. Let's check about the try catch with this example, why it did not crash the 
+  const handleAPICall=async(Data)=>{
+    // try {
+      const res= await axios.put(`${BASE_URL}UpdateAboutMe1`,Data);
+      console.log("res: ",res)
+      toast.success(res.data.MSG)
+    // } catch (error) {
+    //   console.log("There is been Error: ",error);
+    //   toast.error("Error Occured Updating About")
+
+    // }
+
+  UpdateAboutMe1 wrong route, let's understand it 
+  also Would you like me to also explain how try-catch differs from Promise .catch() and when each is better (e.g., try-catch vs .then().catch() in axios)?
