@@ -31,12 +31,12 @@ const Projects = ({ title }) => {
               </div>
             ))}
           </div>
-          <div className="flex xl:flex-row flex-col gap-5">
+          <div className="flex xl:flex-row flex-col gap-8">
             <img
               // src={current.Image}
               src={current.ProjectImgURL}
               alt="Project Image "
-              className="max-w-72 object-contain"
+              className="max-w-72 object-contain border-4 border-tertiory p-1"
             />
             <div className=" text-white flex  flex-col gap-5 lg:gap-10 w-fit  ">
               <h2 className="text-2xl text-secondary font-medium">
@@ -46,7 +46,7 @@ const Projects = ({ title }) => {
                 {/* {current.Description} */}
                 {current.ProjectSummary}
               </h3>
-              <h3 className="text-md">
+              <h3 className="text-xl leading-8">
                 {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
                 quasi quam, dolor hic, eum delectus porro libero sit, doloremque
                 dolorem fugiat asperiores quisquam iusto possimus unde nihil

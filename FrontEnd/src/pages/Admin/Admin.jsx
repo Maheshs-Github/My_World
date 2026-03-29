@@ -10,10 +10,11 @@ import AdminContact from "./AdminContact";
 const Admin = () => {
   const [tab, setTab] = useState("Intro");
   return (
-    <div>
+    <div className=" pt-[50px]  sm:pt-[80px]  2xl:px-0 flex justify-center w-screen">
       {/* <h1>Admin</h1> */}
       {/* <Header /> */}
-      <div className="px-[10px]  py-[10px] sm:py-[30px]">
+      <div className="px-[10px]  py-[10px] sm:py-[30px] 2xl:w-[1440px] w-full">
+        <div className="overflow-auto flex justify-between p-2">
         <button
           className={` text-2xl font-semibold cursor-pointer p-2 mr-4
           ${tab === "Intro" ? "border-b-primary  border-b-4" : null}`}
@@ -62,6 +63,7 @@ const Admin = () => {
         >
           Contact
         </button>
+        </div>
         
         <div className="pt-[10px] sm:pt-[30px] ">
           <div className="border-2 px-6 py-10">

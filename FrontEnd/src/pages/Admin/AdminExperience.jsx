@@ -120,7 +120,7 @@ const AdminExperience = () => {
         {ExperienceData?.map((Data, index) => {
           return (
             <div
-              className="p-6 border-2 flex flex-col gap-2 text-xl"
+              className="p-6 border-2 flex flex-col gap-2 text-xl w-full"
               key={index}
             >
               <h2 className="font-bold text-2xl">{Data?.Period}</h2>

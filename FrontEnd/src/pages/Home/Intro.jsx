@@ -33,7 +33,7 @@ const Intro = () => {
         solid even it is not that measure`}
       </p>
       <button className="text-tertiory border-tertiory border-2 py-2 px-4 rounded-md w-[170px] h-[50px] hover:bg-tertiory hover:text-white text-lg">
-        Get Started 1
+        Get Started
       </button>
     </div>
     </>

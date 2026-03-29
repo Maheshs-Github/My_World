@@ -12,12 +12,14 @@ import {
   GetIntro,
   GetProject,
   GetRoot,
+  LogIn,
   PostAboutMe,
   PostContact,
   PostEducation,
   PostExperience,
   PostIntro,
   PostProject,
+  Signup,
   UpdateAboutMe,
   UpdateContact,
   UpdateEducation,
@@ -48,5 +50,7 @@ Router.delete("/DeleteEducation/:_id", DeleteEducation);
 Router.post("/PostContact", PostContact);
 Router.get("/GetContact", GetContact);
 Router.put("/UpdateContact", UpdateContact);
+Router.post("/SignUp",Signup);
+Router.post("/Login",LogIn);
 
 export default Router;

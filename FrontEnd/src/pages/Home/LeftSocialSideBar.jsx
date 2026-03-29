@@ -1,11 +1,7 @@
 import React from "react";
-import { FaInstagram } from "react-icons/fa6";
-import { HiOutlineMail } from "react-icons/hi";
-import { TbBrandTelegram } from "react-icons/tb";
-import { LiaLinkedin } from "react-icons/lia";
-import { FaLinkedinIn } from "react-icons/fa";
 
-import { BsGithub } from "react-icons/bs";
+
+import Icons from "../../Icons/Icons";
 
 const LeftSocialSideBar = () => {
   return (
@@ -17,40 +13,41 @@ const LeftSocialSideBar = () => {
           rel="noopener noreferrer"
         >
           {" "}
-          <FaInstagram
+          <Icons.IG 
+            size={24}
+            className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
+          />
+        </a>
+
+        <a
+          href="https://t.me/SOLO_LYF_Lover"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {" "}
+          <Icons.TG
             size={24}
             className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
           />
         </a>
         <a
-          href="https://www.instagram.com/animee_lover_mahesh/"
+          href="https://www.linkedin.com/in/mahesh-mane-b14a79257/"
           target="_blank"
           rel="noopener noreferrer"
         >
           {" "}
-          <TbBrandTelegram
-            size={24}
-            className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/animee_lover_mahesh/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {" "}
-          <FaLinkedinIn
+          <Icons.Linkedin
             size={20}
             className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
           />
         </a>
         <a
-          href="https://www.instagram.com/animee_lover_mahesh/"
+          href="mailto:maheshmane9075@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           {" "}
-          <HiOutlineMail
+          <Icons.Email
             size={24}
             className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
           />
@@ -61,7 +58,7 @@ const LeftSocialSideBar = () => {
           rel="noopener noreferrer"
         >
           {" "}
-          <BsGithub
+          <Icons.Github
             size={24}
             className="cursor-pointer hover:text-white hover:opacity-95 hover:scale-110 opacity-30"
           />

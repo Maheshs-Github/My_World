@@ -1,3 +1,4 @@
+
 import {
   AboutMe,
   Contact,
@@ -5,7 +6,11 @@ import {
   Experience,
   Intro,
   Project,
+  User,
 } from "../Models/PortFolioModels.js";
+
+import bcrypt from "bcrypt";
+import GenerateToken from "../utils/generateToken.js";
 
 const GetRoot = (req, res) => {
   return res.status(200).json({ msg: "U r Root is just Rocking" });
@@ -593,7 +598,7 @@ const GetContact = async (req, res) => {
 
 const UpdateContact = async (req, res) => {
   try {
-    const {_id, Name, Age, Gender, Email, Mobile, Country } = req.body;
+    const { _id, Name, Age, Gender, Email, Mobile, Country } = req.body;
     if (!_id)
       return res
         .status(400)
@@ -620,13 +625,91 @@ const UpdateContact = async (req, res) => {
     });
   } catch (error) {
     console.log("There is been some Error Occured ", error);
+    return res.status(500).json({
+      MSG: "There is been some Internal Error",
+      error: true,
+      success: false,
+    });
+  }
+};
+
+const Signup = async (req, res) => {
+  try {
+    const { Name, Email, Password, Role = "user" } = req.body;
+    // console.log("Email: ",Email)
+    if (!Name || !Email || !Password)
+      return res
+        .status(400)
+        .json({ MSG: "All Fields are Required", success: false, error: true });
+
+    // console.log("Email: ",Email)
+    const isSameEmail = await User.findOne({ Email });
+    // console.log("isSameEmail: ",isSameEmail)
+    if (isSameEmail)
+      return res
+        .status(409)
+        .json({ MSG: "User Found,  Try Logging", error: true, success: false });
+
+    const HashedPasword = await bcrypt.hash(Password, 10);
+
+    const NewUser = new User({ Name, Email, Password: HashedPasword, Role });
+    const SavedUser = await NewUser.save();
+    const { Password: removPass, ...safeData } = SavedUser._doc;
+
+    return res
+      .status(200)
+      .json({
+        MSG: "User Created Successfully",
+        success: true,
+        error: false,
+        Data: safeData,
+      });
+
+    // console.log("NAme: ",Name," Email: ",Email)
+  } catch (error) {
+    console.log("There is been Error: ", error);
     return res
       .status(500)
+      .json({ MSG: "There is been some Error", error: true, success: false });
+  }
+};
+
+const LogIn = async (req, res) => {
+  try {
+    const { Password, Email } = req.body;
+    if (!Password || !Email)
+      return res
+        .status(400)
+        .json({ MSG: "All Fields are Rquired", success: false, error: true });
+
+    const FoundUser = await User.findOne({ Email });
+    if (!FoundUser)
+      return res
+        .status(404)
+        .json({ MSG: "Email or Password Issue", error: true, success: false });
+
+        console.log("Password: ",Password, " FoundUser.Password: ", FoundUser.Password)
+    const isMatched = await bcrypt.compare(Password, FoundUser.Password);
+    if (!isMatched)
+      return res
+        .status(401)
+        .json({ MSG: "Email or Password Issue", error: true, success: false });
+    const Token = GenerateToken(FoundUser._id);
+
+    res
+      .status(200)
       .json({
-        MSG: "There is been some Internal Error",
+        MSG: "LogIn Successful",
         error: true,
         success: false,
+        Data: FoundUser,
+        Token,
       });
+  } catch (error) {
+    console.log("There is been some Error ", error);
+    res
+      .status(500)
+      .json({ MSG: "Interanl Server Error", error: true, success: false });
   }
 };
 
@@ -653,4 +736,6 @@ export {
   DeleteProject,
   UpdateProject,
   UpdateContact,
+  Signup,
+  LogIn,
 };

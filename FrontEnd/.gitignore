@@ -23,3 +23,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# File Not to add 
+FrontEnd/src/pages/Anime_Section/Manga.jsx
+FrontEnd/src/pages/Anime_Section/FavList.jsx
+FrontEnd/src/pages/Anime_Section/FavList.jsx
+FrontEnd/src/pages/Anime_Section/AllAnimeSection.jsx
+FrontEnd/UTextFiles

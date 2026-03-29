@@ -145,6 +145,26 @@ const ContactSchema = new mongoose.Schema({
     required: true,
   },
 });
+const UserSchema=new mongoose.Schema({
+  Name:{
+    type:String,
+  },
+  Email:{
+    type:String,
+    required:true,
+    unique:true,
+    lowercase:true,
+  },
+  Password:{
+    type:String,
+    required:true
+  },
+  Role:{
+    type:String,
+    enum:["user","admin"],
+    default:"user"
+  }
+})
 
 export const Intro = mongoose.model("Intros", IntroSchema);
 export const AboutMe = mongoose.model("AboutMes", AboutMeSchema);
@@ -153,5 +173,6 @@ export const Project = mongoose.model("Projects", ProjectSchema);
 // export const Course = mongoose.model("Courses", CourseSchema);
 export const Education = mongoose.model("Educations", EducationSchema);
 export const Contact = mongoose.model("Contacts", ContactSchema);
+export const User=mongoose.model("Users",UserSchema)
 
 // export { Intro, AboutMe, Experience, Project, Course, Contact };

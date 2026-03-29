@@ -16,13 +16,13 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://my-world-x66a.onrender.com", // your frontend on Render
-  "http://localhost:5174" // for local testing
+  // "http://localhost:5174" // for local testing
 ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin) || (origin.startsWith("http://localhost"))) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));

@@ -81,7 +81,9 @@ const Home = () => {
     //   {loading ? <Loader />:
     //   <>
     //   <Header></Header>
-      <div className="w-screen bg-primary px-[20px] pt-[30px] sm:px-[150px] sm:pt-[80px] ">
+      <div className="w-screen bg-primary  ">
+        <div className=" 2xl:flex 2xl:justify-center">
+          <div className="2xl:w-[1440px] 3xl:px-0 px-[20px] pt-[30px] sm:px-[130px] sm:pt-[80px]">
         <Intro></Intro>
         <About></About>
         <Experiences title={"Experiences"} />
@@ -90,6 +92,8 @@ const Home = () => {
         <Education title={"Education"} />
         <Contact title={"Say Hello"} />
         <Footer />
+        </div>
+        </div>
         <LeftSocialSideBar />
       </div>
     //   </>

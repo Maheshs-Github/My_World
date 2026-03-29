@@ -58,3 +58,28 @@ Here you’re logging inside the updater function — so it captures the next ar
 
   UpdateAboutMe1 wrong route, let's understand it 
   also Would you like me to also explain how try-catch differs from Promise .catch() and when each is better (e.g., try-catch vs .then().catch() in axios)?
+
+
+  11. Let's see this one?
+  const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true, trim: true },
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ["user", "admin"], default: "user" }
+}, { timestamps: true });
+
+module.exports = mongoose.model("User", userSchema);
+
+
+12. We can use the same Model for Login and Sign Up 
+
+13. Why did unique didn't work for  the email 
+
+14. Let's see about the required 
+
+15. Let's see about the bcrypt and Important Imp http status
+304,409,429
+
+16. How we are using fonts just importing and using it in a tailwind how 

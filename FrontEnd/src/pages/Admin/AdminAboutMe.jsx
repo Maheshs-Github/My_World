@@ -73,7 +73,7 @@ const AdminAboutMe = () => {
           <label htmlFor="Skills" className="font-medium">
             Skills
           </label>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {about.Skills.map((data, index) => {
               return (
                 <span
